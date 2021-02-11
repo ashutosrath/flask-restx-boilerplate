@@ -17,7 +17,7 @@ register_schema = RegisterSchema()
 
 @api.route("/login")
 class AuthLogin(Resource):
-    """ User login endpoint
+    """User login endpoint
     User registers then receives the user's information and access_token
     """
 
@@ -39,7 +39,8 @@ class AuthLogin(Resource):
         login_data = request.get_json()
 
         # Validate data
-        if (errors := login_schema.validate(login_data)) :
+        errors = login_schema.validate(login_data)
+        if errors:
             return validation_error(False, errors), 400
 
         return AuthService.login(login_data)
@@ -47,7 +48,7 @@ class AuthLogin(Resource):
 
 @api.route("/register")
 class AuthRegister(Resource):
-    """ User register endpoint
+    """User register endpoint
     User registers then receives the user's information and access_token
     """
 
@@ -67,7 +68,8 @@ class AuthRegister(Resource):
         register_data = request.get_json()
 
         # Validate data
-        if (errors := register_schema.validate(register_data)) :
+        errors = register_schema.validate(register_data)
+        if errors:
             return validation_error(False, errors), 400
 
         return AuthService.register(register_data)

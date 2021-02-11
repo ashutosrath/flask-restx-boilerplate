@@ -17,7 +17,20 @@ class UserGet(Resource):
             404: "User not found!",
         },
     )
-    @jwt_required
+    # @jwt_required
     def get(self, username):
         """ Get a specific user's data by their username """
         return UserService.get_user_data(username)
+@api.route("/")
+class UserAllGet(Resource):
+    @api.doc(
+        "Get a specific user",
+        responses={
+            200: ("User data successfully sent", data_resp),
+            404: "User not found!",
+        },
+    )
+    # @jwt_required
+    def get(self):
+        """ Get all user data """
+        return UserService.get_all_user_data()
