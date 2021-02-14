@@ -16,8 +16,8 @@ from .extensions import bcrypt, cors, db, jwt, ma
 # Import config
 from config import config_by_name
 
-if os.environ.get("VCAP_SERVICES"):
-
+if os.environ.get("C9_PROJECT"):
+    print("*********Running under C9_PROJECT**********************")
     @property
     def specs_url(self):
         return url_for(self.endpoint("specs"), _external=True, _scheme="https")
