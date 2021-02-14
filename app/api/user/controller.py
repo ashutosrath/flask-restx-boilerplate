@@ -21,6 +21,8 @@ class UserGet(Resource):
     def get(self, username):
         """ Get a specific user's data by their username """
         return UserService.get_user_data(username)
+
+
 @api.route("/")
 class UserAllGet(Resource):
     @api.doc(
