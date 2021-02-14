@@ -32,7 +32,7 @@ def test(test_names):
     import unittest
 
     if test_names:
-        """ Run specific unit tests.
+        """Run specific unit tests.
 
         Example:
         $ flask test tests.test_auth_api tests.test_user_model ...

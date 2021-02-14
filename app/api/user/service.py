@@ -38,7 +38,7 @@ class UserService:
             user_data_list = []
             for user in users:
                 user_data = load_data(user)
-                if(user_data):
+                if user_data:
                     user_data_list.append(user_data)
             resp = message(True, "User data sent")
             resp["users"] = user_data_list

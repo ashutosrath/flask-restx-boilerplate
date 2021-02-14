@@ -1,5 +1,5 @@
 def load_data(user_db_obj):
-    """ Load user's data
+    """Load user's data
 
     Parameters:
     - User db object

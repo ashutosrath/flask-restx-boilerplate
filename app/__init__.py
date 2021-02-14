@@ -5,14 +5,24 @@ This module:
 - Contains create_app()
 - Registers extensions
 """
-
+import os
 from flask import Flask
+from flask import url_for
+from flask_restx import Api
 
 # Import extensions
 from .extensions import bcrypt, cors, db, jwt, ma
 
 # Import config
 from config import config_by_name
+
+if os.environ.get("VCAP_SERVICES"):
+
+    @property
+    def specs_url(self):
+        return url_for(self.endpoint("specs"), _external=True, _scheme="https")
+
+    Api.specs_url = specs_url
 
 
 def create_app(config_name):

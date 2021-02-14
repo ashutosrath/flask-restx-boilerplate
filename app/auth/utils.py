@@ -4,7 +4,7 @@ from marshmallow.validate import Regexp, Length
 
 
 class LoginSchema(Schema):
-    """ /auth/login [POST]
+    """/auth/login [POST]
 
     Parameters:
     - Email
@@ -16,7 +16,7 @@ class LoginSchema(Schema):
 
 
 class RegisterSchema(Schema):
-    """ /auth/register [POST]
+    """/auth/register [POST]
 
     Parameters:
     - Email
@@ -39,7 +39,8 @@ class RegisterSchema(Schema):
     name = fields.Str(
         validate=[
             Regexp(
-                r"^[A-Za-z]+((\s)?((\'|\-|\.)?([A-Za-z])+))*$", error="Invalid name!",
+                r"^[A-Za-z]+((\s)?((\'|\-|\.)?([A-Za-z])+))*$",
+                error="Invalid name!",
             )
         ]
     )
